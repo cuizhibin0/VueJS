@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>if</title>
+	<script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p v-if="seen" v-on:click="onClick">第一滴血</p>
+	</div> 
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				seen: true
+			},
+			methods: {
+				onClick: function(){
+					this.seen = !this.seen
+				}
+			}
+		})
+	</script>
+</body>
+</html>
