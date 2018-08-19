@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue绑定样式</title>
+    <script src="./vue.js"></script>
+    <style>
+        .color {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="app">
+         class 对象绑定 
+        <div @click="handleDivClick" :class="{color: isColor}">
+             Hello World!
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isColor: false
+            },
+            methods: {
+                handleDivClick: function() {
+                    this.isColor = !this.isColor; 
+                }
+            }
+        })
+    </script> -->
+
+<div id="app">
+        <!-- class 对象绑定 -->
+        <div @click="handleDivClick" :class="[color]">
+             Hello World!
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                color: ""
+            },
+            methods: {
+                handleDivClick: function() {
+                    // this.color = "color";
+
+                    this.color = this.color === '' ? "color" : this.color = "";
+
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
