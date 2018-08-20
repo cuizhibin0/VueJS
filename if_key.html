@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>用key管理可复用元素</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <span v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username" key="username-input"> <!-- key="username-input" 使用key管理可复用元素,在切换input框时,会清空掉输入的内容 -->
+    </span>
+    <span v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address" key="email-input"> <!-- key="email-input" -->
+    </span>
+    <button v-on:click="test">切换</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        loginType: 'username'
+      },
+      methods: {
+        test: function () {
+          return this.loginType = this.loginType == 'username' ? 'email' : 'username'
+          // if (this.loginType != 'username') {
+          //   return this.loginType = 'username'
+          // }
+          // return this.loginType = 'email'
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

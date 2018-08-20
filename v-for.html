@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <ul>
+            <todo-item :value='value' :keys='key' :index='index' v-for="(value,key,index) in object">
+            </todo-item>
+        </ul> -->
+        <ul>
+            <!-- <li v-for="value in list">
+                {{value}}
+            </li> -->
+        </ul>
+
+    </div>
+
+    <script>
+        // Vue.component('todo-item', {
+        //     props: ['value', 'keys', 'index'],
+        //     template: '<li>{{index}} : {{keys}}:{{value}}</li>'
+        // })
+
+        // var vm = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         object: {
+        //             fristName: 'zhibin',
+        //             lastName: 'cui',
+        //             age: 25
+        //         }
+        //     }
+        // })
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                object: {
+                    fristName: 'zhibin.cui'
+                }
+            }
+        })
+
+
+        // 替换值
+        // Vue.set(vm.list,1,5);
+        // vm.list.splice(1,1,6);
+        // vm.$set(vm.list, 1, 7);
+
+        // 给object对象添加属性
+        vm.object = Object.assign({},vm.object,{
+            msg: 'is good boy',
+            age: 25
+        })
+
+
+        // vm.list[1] = 5;
+        // vm.list.length = 6;
+    </script>
+</body>
+
+</html>
