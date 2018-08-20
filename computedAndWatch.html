@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,12 @@
     <title>计算属性，方法，监听</title>
     <script src="./vue.js"></script>
 </head>
+
 <body>
     <div id="app">
-        {{fullName}}
-        {{age}}
+        {{fullName}} {{age}}
     </div>
-    
+
     <script>
         var vm = new Vue({
             el: '#app',
@@ -40,7 +41,7 @@
             //         return this.fristName + " " + this.lastName;
             //     }
             // }
-            
+
             // 计算属性
             computed: {
                 // fullName: function() {
@@ -48,10 +49,10 @@
                 //     return this.fristName + " " + this.lastName;
                 // }
                 fullName: {
-                    get: function() {
+                    get: function () {
                         return this.fristName + " " + this.lastName;
                     },
-                    set: function(value) {
+                    set: function (value) {
                         var array = value.split(" ");
                         this.fristName = array[0];
                         this.lastName = array[1];
@@ -62,4 +63,5 @@
         })
     </script>
 </body>
+
 </html>

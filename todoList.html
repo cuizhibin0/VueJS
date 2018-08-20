@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<title>ToDoList</title>
 	<script src="./vue.js"></script>
+	<script src="./jquery.js"></script>
 </head>
 
 <body>
@@ -39,8 +40,27 @@
 		// 局部组件
 		var TodoItem = {
 			// 父组件可以使用 props 把数据传给子组件。
-			props: ['content','index'],
-			template: "<li @click='handleItemClick'>{{content}}</li>",
+			// props: ['content','index'],
+			props: {
+				// 可以设定 prop 类型,默认值,在开发版本,如果类型不对,在console 中会报错提示,但不影响使用
+				content: Number
+				// default: 100 
+
+			},
+			// 单向数据流 data
+			data: function() {
+				return {
+					content2: this.content + " by data"
+				}
+			},
+			// 单向数据流 计算属性
+			computed: {
+				content1: function() {
+				    return	this.content + " by zhibin.cui"
+				}
+				
+			},
+			template: "<li @click='handleItemClick'>{{content2}}</li>",
 			methods: {
 				handleItemClick: function () {
 					// 子组件可以使用 $emit 触发父组件的自定义事件。
